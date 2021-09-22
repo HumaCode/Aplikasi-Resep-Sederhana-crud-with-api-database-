@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Resep Rest Api</string>
+    <string name="nama">Nama</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="jk">Jenis Kelamin</string>
+    <string name="link_image">Link Image</string>
+    <string name="password">Password</string>
+    <string name="form_register">Form Register</string>
 </resources>

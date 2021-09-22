@@ -21,6 +21,15 @@ public interface RestApi {
                                   @Field("gambar") String gambar);
 
     @FormUrlEncoded
+    @POST("user_register.php")
+    Call<ResponseData> userRegister(@Field("nama") String nama,
+                                  @Field("jk") String jk,
+                                  @Field("image") String image,
+                                  @Field("email") String email,
+                                  @Field("username") String username,
+                                  @Field("password") String password);
+
+    @FormUrlEncoded
     @POST("update.php")
     Call<ResponseData> updateData( @Field("id_resep") String id,
                                    @Field("nama_resep") String nama,
