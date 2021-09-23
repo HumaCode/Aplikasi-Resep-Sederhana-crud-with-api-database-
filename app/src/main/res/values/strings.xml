@@ -7,4 +7,5 @@
     <string name="link_image">Link Image</string>
     <string name="password">Password</string>
     <string name="form_register">Form Register</string>
+    <string name="welcome">WELCOME</string>
 </resources>

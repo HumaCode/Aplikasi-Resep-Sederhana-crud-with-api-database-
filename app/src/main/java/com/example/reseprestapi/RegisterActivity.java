@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.reseprestapi.login.LoginActivity;
 import com.example.reseprestapi.model.ResponseData;
 import com.example.reseprestapi.network.RestApi;
 import com.example.reseprestapi.network.RetroServer;
@@ -80,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
 //                                jika berhasil akan diarahkan ke halaman login
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                                finish();
                             }else{
                                 pbRegister.setVisibility(View.GONE);
                                 Toast.makeText(RegisterActivity.this, "Register Gagal",

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".login.LoginActivity"
     android:orientation="vertical"
     android:layout_margin="16dp"
     android:gravity="center">
@@ -29,7 +29,15 @@
         android:id="@+id/login"
         android:backgroundTint="@color/design_default_color_secondary_variant"
         android:textColor="#fff"
+        android:layout_marginTop="10dp"
         android:textSize="16sp"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/pb_login"
+        android:visibility="gone"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"

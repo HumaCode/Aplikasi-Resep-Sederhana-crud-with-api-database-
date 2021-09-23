@@ -1,5 +1,6 @@
 package com.example.reseprestapi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -14,6 +17,7 @@ import android.widget.Toast;
 import com.example.reseprestapi.model.ResepItem;
 import com.example.reseprestapi.model.ResponseGetAllDataResep;
 import com.example.reseprestapi.network.RestApi;
+import com.example.reseprestapi.pref.SessionPref;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
@@ -34,10 +38,16 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton addData;
     ProgressBar progressBar;
 
+    //    session adapter / preff
+    SessionPref sessionPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sessionPref =  new SessionPref(this);
+        sessionPref.checkLoginMain();
 
         //inisialis
         progressBar = findViewById(R.id.progress_circular);
@@ -54,6 +64,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AddResepActivity.class));
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int idd = item.getItemId();
+        if (idd==R.id.idLogout){
+            sessionPref.logoutUser();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void getDataResep() {
